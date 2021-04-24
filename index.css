@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    color: white;
+    margin:0;
+    background:cover;
+    background-color: #262626;
+    animation: stars 300s infinite;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+  }
+  .letter {
+      margin: 50px;
+      padding: 5px;
+      border: solid white 2px;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.7);
+  }
+  header {
+    margin-top: 25px;
+    height:80px;
+    color: white;
+    font-family: 'Codystar', cursive;
+    text-transform: uppercase;
+  }
+  
+  header h1, h2 {
+    line-height: 1;
+    top:24px;
+    color: #d55;
+    text-align: center;
+  }
+  header h1 {
+    color: #d55;
+  }
+  header h2 {
+    color: #d5d;
+  }
+
+  .bottom-cake {
+    position: absolute;
+    bottom: -1200px;
+    width: 100%;
+  }
+  @keyframes stars {
+    from {background-position-y: 0%}
+    50% {background-position-y: 100%}
+  }
