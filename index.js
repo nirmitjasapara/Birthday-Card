@@ -4,10 +4,6 @@ function handleApp() {
   var src = document.getElementById("src");
   var target = document.getElementById("board");
   src.ondragstart = saveShape;
-  $(".button").click( () => {
-    //$(".button").removeClass("selected");
-    console.log(this.target);
-    $(this).addClass('selected');});
   target.ondrop = drawShape;
   target.ondragover = function (e) {
     e.preventDefault();
