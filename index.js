@@ -7,20 +7,23 @@ function handleApp() {
   target.ondrop = drawShape;
   src.addEventListener('touchstart', function(e) {
     console.log(e);
+    e.preventDefault();
     newshape = createShape(e.target.src, e.pageX, e.pageY);
-  });
+  }, false);
   src.addEventListener("touchmove", function(e) {
+    e.preventDefault();
     // grab the location of touch
     var touchLocation = e.targetTouches[0];
     
     // assign box new coordinates based on the touch.
     newshape.style.left = touchLocation.pageX + 'px';
     newshape.style.top = touchLocation.pageY + 'px';
-  });
+  }, false);
   src.addEventListener("touchend", function(e) {
+    e.preventDefault();
     console.log(e);
     newshape = null;
-  });
+  }, false);
   target.ondragover = function (e) {
     e.preventDefault();
   };
