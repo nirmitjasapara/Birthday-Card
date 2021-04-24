@@ -18,9 +18,10 @@ function drawShape (e) {
   e.preventDefault();
   var board = document.getElementById("board");
 
+  console.log(e);
   const shape = e.dataTransfer.getData("shape");
-  const x = e.offsetX - 25;
-  const y = e.offsetY - 25;
+  const x = e.pageX - 25;
+  const y = e.pageY - 25;
   var newshape = new Image();
   newshape.src = shape;
   newshape.height = "100";
