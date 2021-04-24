@@ -15,7 +15,8 @@
     align-content: center;
   }
   .letter {
-      margin: 100px;
+      margin-left: 100px;
+      margin-right: 5px;
       padding: 5px;
       border: solid white 2px;
       border-radius: 5px;
