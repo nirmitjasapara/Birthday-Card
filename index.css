@@ -64,6 +64,13 @@
     bottom: -100vw;
     width: 100%;
   }
+  .balloons {
+    animation: balloon-anim 10s infinite;
+
+  }
+  @keyframes balloon-anim {
+    100% {top: -50px}
+  }
   @keyframes stars {
     from {background-position-y: 0%}
     50% {background-position-y: 100%}

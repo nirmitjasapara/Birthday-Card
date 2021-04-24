@@ -10,23 +10,27 @@ function handleApp() {
   };
 }
 function saveShape(e){
-  e.dataTransfer.setData("shape", e.target.id);
+  e.dataTransfer.setData("shape", e.target.src);
 }
 function drawShape (e) {
   e.preventDefault();
+  var board = document.getElementById("board");
 
   const shape = e.dataTransfer.getData("shape");
   const x = e.offsetX - 25;
   const y = e.offsetY - 25;
-  switch (shape) {
-    case "square": makeRectangle(x, y); break;
-    case "circle": makeCircle(x, y); break;
-    case "triangle": makeTriangle(x, y); break;
-    case "arrow": makeArrow(x, y); break;
-  }
+  var newshape = new Image();
+  newshape.src = shape;
+  newshape.height = "100";
+  newshape.width = "100";
+  newshape.style.position = "absolute";
+  newshape.style.top = y + "px";
+  newshape.style.left = x + "px";
+  newshape.className = "balloons";
+  board.appendChild(newshape);
 }
-function makeRectangle(x, y) {
-  console.log("rect");
+function makeBalloon(x, y) {
+  console.log("Balloon");
 }
 function makeCircle(x, y) {
   console.log("circ");
