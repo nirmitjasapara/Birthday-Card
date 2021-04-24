@@ -52,6 +52,11 @@
     margin: 10px;
     padding: 5px;
   }
+ .selected {
+    background-color: white;
+    border: solid 1px black;
+    border-radius: 5px;
+  }
   .blue {
     stroke: blue;
     stroke-width: 1px;
@@ -65,12 +70,28 @@
     bottom: -100vw;
     width: 100%;
   }
-  .balloons {
-    animation: balloon-anim 10s infinite;
-
+  .up {
+    animation: up-anim 10s infinite;
   }
-  @keyframes balloon-anim {
+  .down {
+    animation: down-anim 10s infinite;
+  }
+  .expand {
+    animation: expand-anim 4s infinite;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+    opacity: 0;
+  }
+  @keyframes up-anim {
     100% {top: -50px}
+  }
+  @keyframes down-anim {
+    100% {top: 1500px}
+  }
+  @keyframes expand-anim {
+    from {height: 0px; width: 0px; opacity: 1;}
+    50% {height: 100px; width: 100px}
+    100% {opacity: 0;}
   }
   @keyframes stars {
     from {background-position-y: 0%}

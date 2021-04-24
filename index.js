@@ -4,25 +4,29 @@ function handleApp() {
   var src = document.getElementById("src");
   var target = document.getElementById("board");
   src.ondragstart = saveShape;
+  $(".button").click( () => {
+    //$(".button").removeClass("selected");
+    console.log(this.target);
+    $(this).addClass('selected');});
   target.ondrop = drawShape;
   target.ondragover = function (e) {
     e.preventDefault();
   };
 }
 function saveShape(e){
-  e.dataTransfer.setData("shape", e.target.src);
+  console.log(e);
+  e.dataTransfer.setData("shape", e.target.src + "|" + e.target.dataset.dir);
 }
 function drawShape (e) {
   e.preventDefault();
   var board = document.getElementById("board");
 
-  console.log(e);
-  const shape = e.dataTransfer.getData("shape");
+  const [shape, dir] = e.dataTransfer.getData("shape").split('|');
   const x = e.pageX - 25;
   const y = e.pageY - 25;
-  board.appendChild(createShape(shape, x, y));
+  board.appendChild(createShape(shape, x, y, dir));
 }
-function createShape(src, x, y) {
+function createShape(src, x, y, dir) {
   var newshape = new Image();
   newshape.src = src;
   newshape.height = "100";
@@ -30,6 +34,6 @@ function createShape(src, x, y) {
   newshape.style.position = "absolute";
   newshape.style.top = y + "px";
   newshape.style.left = x + "px";
-  newshape.className = "balloons";
+  newshape.className = dir;
   return newshape;
 }
