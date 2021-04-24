@@ -61,7 +61,7 @@
 
   .bottom-cake {
     position: absolute;
-    bottom: -1200px;
+    bottom: -100vw;
     width: 100%;
   }
   @keyframes stars {
