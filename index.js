@@ -5,18 +5,22 @@ function handleApp() {
   var target = document.getElementById("board");
   src.ondragstart = saveShape;
   target.ondrop = drawShape;
-  src.addEventListener('touchmove', function(e) {
+  src.addEventListener('touchstart', function(e) {
     console.log(e);
+    newshape = createShape(e.target.src, e.pageX, e.pageY);
   });
-  src.addEventListener("touchstart", function(e) {
+  src.addEventListener("touchmove", function(e) {
     // grab the location of touch
     var touchLocation = e.targetTouches[0];
     
     // assign box new coordinates based on the touch.
-    src.style.left = touchLocation.pageX + 'px';
-    src.style.top = touchLocation.pageY + 'px';
+    newshape.style.left = touchLocation.pageX + 'px';
+    newshape.style.top = touchLocation.pageY + 'px';
   });
-  src.addEventListener("touchend", drawShape, false);
+  src.addEventListener("touchend", function(e) {
+    console.log(e);
+    newshape = null;
+  });
   target.ondragover = function (e) {
     e.preventDefault();
   };
