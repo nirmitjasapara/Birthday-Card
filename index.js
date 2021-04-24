@@ -5,6 +5,8 @@ function handleApp() {
   var target = document.getElementById("board");
   src.ondragstart = saveShape;
   target.ondrop = drawShape;
+  src.addEventListener("touchstart", saveShape, false);
+  src.addEventListener("touchend", drawShape, false);
   target.ondragover = function (e) {
     e.preventDefault();
   };
@@ -28,16 +30,4 @@ function drawShape (e) {
   newshape.style.left = x + "px";
   newshape.className = "balloons";
   board.appendChild(newshape);
-}
-function makeBalloon(x, y) {
-  console.log("Balloon");
-}
-function makeCircle(x, y) {
-  console.log("circ");
-}
-function makeTriangle(x, y) {
-  console.log("tri");
-}
-function makeArrow(x, y) {
-  console.log("arrow");
 }
